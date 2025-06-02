@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 import 'package:smaw/core/components/custom_drawer.dart';
 import 'package:smaw/core/extensions/num_extenstions.dart';
 import 'package:smaw/core/resources/colors_manager.dart';
@@ -24,15 +23,16 @@ class MainScreen extends StatefulWidget {
 }
 class MainScreenState extends State<MainScreen> {
 
-  late final PersistentTabController _controller;
   final _advancedDrawerController = AdvancedDrawerController();
+  int _currentIndex = 0;
 
-  MainScreenState();
-  @override
-  void initState() {
-    super.initState();
-    _controller = PersistentTabController(initialIndex: widget.initialIndex);
-  }
+  final List<Widget> _pages = [
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class MainScreenState extends State<MainScreen> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Colors.blueGrey, Colors.blueGrey.withOpacity(0.2)],
+            colors: [Colors.blueGrey, Colors.blueGrey.withValues(alpha: 0.2)],
           ),
         ),
       ),
@@ -58,99 +58,132 @@ class MainScreenState extends State<MainScreen> {
       childDecoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
-        child: PersistentTabView(
-        controller: _controller,
-        tabs: [
-          _buildHome(context),
-          _buildOrders(context),
-          _buildAdd(context),
-          _buildAttendance(context),
-          _buildMenu(context),
-        ],
-        navBarBuilder: (navBarConfig) => Style13BottomNavBar(
-          navBarConfig: navBarConfig,
-          navBarDecoration: NavBarDecoration(
-              padding: EdgeInsets.only(top: 10),
-              color: ColorsManager.primaryWhite,
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0xFF64707A).withValues(alpha: 0.1),
-                  spreadRadius: 5,
-                  blurRadius: 20,
-                  offset: const Offset(0, 0),
-                )
+        child: Scaffold(
+          body: _pages[_currentIndex],
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: ColorsManager.primaryBlue,
+            shape: CircleBorder(),
+            elevation: 4,
+            onPressed: () {
+              setState(() {
+                _currentIndex = 2;
+              });
+            },
+            child: Icon(Icons.add, color: ColorsManager.primaryWhite),
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          bottomNavigationBar: BottomAppBar(
+            shape: CircularNotchedRectangle(),
+            notchMargin: 8,
+            color: Colors.white,
+            elevation: 8,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    24.pw,
+                    _buildHome(context, _currentIndex == 0),
+                    32.pw,
+                    _buildOrders(context, _currentIndex == 1),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    _buildAttendance(context, _currentIndex == 3),
+                    32.pw,
+                    _buildMenu(context, _currentIndex == 4),
+                    24.pw,
+                  ],
+                ),
               ],
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(12),
-                topRight: Radius.circular(12),
-              ),
-              // boxShadow: navBarShadow(context: context)
+            ),
           ),
         ),
-            ),
       );
   }
 
-  PersistentTabConfig _buildHome(BuildContext context) {
-    return _buildItem(
-        iconSelected: AssetsManager.homeSelected,
-        iconNotSelected: AssetsManager.home,
-        name: StringsManager.navBarHome
-    );
-  }
-
-  PersistentTabConfig _buildOrders(BuildContext context) {
-    return _buildItem(
-        iconSelected: AssetsManager.ordersSelected,
-        iconNotSelected: AssetsManager.orders,
-        name: StringsManager.navBarOrders
-    );
-  }
-
-  PersistentTabConfig _buildAdd(BuildContext context) {
-    return PersistentTabConfig(
-      screen: const HomeScreen(),
-      item: ItemConfig(
-        icon: Icon(Icons.add, color: ColorsManager.primaryWhite,),
-        inactiveIcon: Icon(Icons.add, color: ColorsManager.primaryWhite,),
+  Widget _buildHome(BuildContext context, bool isActive) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _currentIndex = 0;
+        });
+      },
+      child: _buildItem(
+          iconSelected: AssetsManager.homeSelected,
+          iconNotSelected: AssetsManager.home,
+          name: StringsManager.navBarHome,
+          isActive: isActive
       ),
     );
   }
 
-  PersistentTabConfig _buildAttendance(BuildContext context) {
-    return _buildItem(
-        iconSelected: AssetsManager.attendanceSelected,
-        iconNotSelected: AssetsManager.attendance,
-        name: StringsManager.navBarAttendance
+  Widget _buildOrders(BuildContext context, bool isActive) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _currentIndex = 1;
+        });
+      },
+      child: _buildItem(
+          iconSelected: AssetsManager.ordersSelected,
+          iconNotSelected: AssetsManager.orders,
+          name: StringsManager.navBarOrders,
+          isActive: isActive
+      ),
     );
   }
 
-  PersistentTabConfig _buildMenu(BuildContext context) {
-    return _buildItem(
-        iconSelected: AssetsManager.menuSelected,
-        iconNotSelected: AssetsManager.menu,
-        name: StringsManager.navBarMenu
+  Widget _buildAttendance(BuildContext context, bool isActive) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _currentIndex = 3;
+        });
+      },
+      child: _buildItem(
+          iconSelected: AssetsManager.attendanceSelected,
+          iconNotSelected: AssetsManager.attendance,
+          name: StringsManager.navBarAttendance,
+          isActive: isActive
+      ),
     );
   }
 
-  PersistentTabConfig _buildItem({
+  Widget _buildMenu(BuildContext context, bool isActive) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _currentIndex = 4;
+          _advancedDrawerController.showDrawer();
+        });
+      },
+      child: _buildItem(
+          iconSelected: AssetsManager.menuSelected,
+          iconNotSelected: AssetsManager.menu,
+          name: StringsManager.navBarMenu,
+          isActive: isActive
+      ),
+    );
+  }
+
+  Widget _buildItem({
     required String iconSelected,
     required String iconNotSelected,
-    required String name
+    required String name,
+    bool isActive = true,
   }) {
-    return PersistentTabConfig(
-      screen: const HomeScreen(),
-      item: ItemConfig(
-        icon: _getWidget(
-            iconSelected,
-            name.trans(context)
-        ),
-        inactiveIcon: _getWidget(
-            iconNotSelected,
+    return Column(
+      children: [
+        _getWidget(
+            isActive ? iconSelected : iconNotSelected,
             name.trans(context),
-            isActive: false
-        ),
-      ),
+            isActive: isActive
+        )
+      ],
     );
   }
 

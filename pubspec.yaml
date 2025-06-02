@@ -11,7 +11,6 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
-  persistent_bottom_nav_bar_v2: ^6.0.1
   google_fonts: ^6.2.1
   flutter_localization: ^0.3.2
   shared_preferences: ^2.5.3
