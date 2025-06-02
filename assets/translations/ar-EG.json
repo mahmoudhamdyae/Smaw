@@ -1,0 +1,36 @@
+{
+  "app_name": "Smaw",
+
+  "nav_bar_home": "الرئيسية",
+  "nav_bar_orders": "الطلبات",
+  "nav_bar_attendance": "الحضور",
+  "nav_bar_menu": "القائمة",
+
+  "drawer_orders": "الطلبات",
+  "drawer_attendance": "سجل الحضور",
+  "drawer_summary": "ملخص الراتب",
+  "drawer_about": "عن التطبيق",
+  "drawer_cond": "الشروط والإحكام",
+  "drawer_policy": "سياسة الخصوصية",
+  "drawer_log_out": "تسجيل الخروج",
+
+  "home_summary": "ملخص الحضور الأسبوعي",
+  "home_newest_orders": "أحدث الطلبات",
+  "home_pending": "قيد المراجعة",
+  "home_accepted": "تم الموافقة",
+  "home_absence_reason": "سبب الغياب",
+  "home_delay_reason": "سبب التأخير",
+  "home_health_reason": "حالة صحية",
+  "home_traffic_jam_reason": "ازدحام الطريق",
+  "home_view_more": "عرض الكل",
+  "home_vacation": "إجازة",
+  "home_absence": "غياب",
+
+  "sat": "السبت",
+  "sun": "الأحد",
+  "mon": "الإثنين",
+  "tue": "الثلاثاء",
+  "wed": "الأربعاء",
+  "thu": "الخميس",
+  "fri": "الجمعة"
+}

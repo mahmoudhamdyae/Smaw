@@ -3,6 +3,7 @@ const String imagePath = "assets/images";
 class AssetsManager {
 
   static const String bell = "$imagePath/bell.png";
+  static const String sar = "$imagePath/sar.png";
 
   /// Avatars
   static const String avatar1 = "$imagePath/avatar_1.png";
@@ -14,9 +15,13 @@ class AssetsManager {
 
   /// Bottom Nav Bar Icons
   static const String home = "$imagePath/home.png";
+  static const String homeSelected = "$imagePath/home_selected.png";
   static const String orders = "$imagePath/orders.png";
+  static const String ordersSelected = "$imagePath/orders_selected.png";
   static const String attendance = "$imagePath/attendance.png";
+  static const String attendanceSelected = "$imagePath/attendance_selected.png";
   static const String menu = "$imagePath/menu.png";
+  static const String menuSelected = "$imagePath/menu_selected.png";
 
   /// Drawer
   static const String ordersFill = "$imagePath/orders_fill.png";
