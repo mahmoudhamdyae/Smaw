@@ -26,13 +26,13 @@ class HomeScreen extends StatelessWidget {
             padding: EdgeInsets.zero,
             children: [
               13.ph,
-              UserCard(),
+              const UserCard(),
               24.ph,
-              HomeMainLabel(title: StringsManager.homeSummary),
+              const HomeMainLabel(title: StringsManager.homeSummary),
               8.ph,
               AttendanceList(attendances: getFakeAttendanceList()),
               24.ph,
-              HomeMainLabel(
+              const HomeMainLabel(
                 title: StringsManager.homeNewestOrders,
                 sub: StringsManager.homeViewMore,
               ),

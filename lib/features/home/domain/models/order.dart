@@ -25,7 +25,7 @@ enum OrderStatus {
 }
 
 List<Order> getFakeOrders() => [
-  Order(
+  const Order(
     type: OrderType.absence,
     date: '12/05/2025',
     time: '10:00',
@@ -33,7 +33,7 @@ List<Order> getFakeOrders() => [
     reason: 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ',
     reasonTitle: 'حالة صحية'
   ),
-  Order(
+  const Order(
       type: OrderType.delay,
       date: '12/05/2025',
       time: '10:00',
@@ -41,7 +41,7 @@ List<Order> getFakeOrders() => [
       reason: 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ',
       reasonTitle: 'ازدحام الطريق'
   ),
-  Order(
+  const Order(
       type: OrderType.reqAmount,
       date: '12/05/2025',
       time: '10:00',

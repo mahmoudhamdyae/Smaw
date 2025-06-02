@@ -12,7 +12,7 @@ class OrderList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      padding: EdgeInsets.symmetric(horizontal: MarginsManager.mainHorizontalMargin),
+      padding: const EdgeInsets.symmetric(horizontal: MarginsManager.mainHorizontalMargin),
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
       itemCount: orders.length,

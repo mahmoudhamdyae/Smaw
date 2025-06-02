@@ -46,7 +46,7 @@ String convertDay(BuildContext context, int day) {
 }
 
 List<Attendance> getFakeAttendanceList() => [
-  Attendance(
+  const Attendance(
     dayNo: 2,
     dateM: '12/05/2025',
     dateH: '12/12/1446',
@@ -56,7 +56,7 @@ List<Attendance> getFakeAttendanceList() => [
     isAbsence: false,
     willBeDeducted: false
   ),
-  Attendance(
+  const Attendance(
       dayNo: 3,
       dateM: '12/05/2025',
       dateH: '12/12/1446',
@@ -66,7 +66,7 @@ List<Attendance> getFakeAttendanceList() => [
       isAbsence: false,
       willBeDeducted: true
   ),
-  Attendance(
+  const Attendance(
       dayNo: 4,
       dateM: '12/05/2025',
       dateH: '12/12/1446',
@@ -74,7 +74,7 @@ List<Attendance> getFakeAttendanceList() => [
       isAbsence: false,
       willBeDeducted: false
   ),
-  Attendance(
+  const Attendance(
       dayNo: 5,
       dateM: '12/05/2025',
       dateH: '12/12/1446',
@@ -82,7 +82,7 @@ List<Attendance> getFakeAttendanceList() => [
       isAbsence: true,
       willBeDeducted: true
   ),
-  Attendance(
+  const Attendance(
       dayNo: 6,
       dateM: '12/05/2025',
       dateH: '12/12/1446',

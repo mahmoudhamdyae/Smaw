@@ -15,7 +15,7 @@ class AttendanceList extends StatelessWidget {
       height: 190,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.symmetric(horizontal: MarginsManager.mainHorizontalMargin),
+        padding: const EdgeInsets.symmetric(horizontal: MarginsManager.mainHorizontalMargin),
         shrinkWrap: true,
         physics: const ClampingScrollPhysics(),
         itemCount: attendances.length,

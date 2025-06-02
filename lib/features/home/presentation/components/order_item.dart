@@ -22,7 +22,7 @@ class OrderItem extends StatelessWidget {
           color: ColorsManager.gray200
         ),
       ),
-      padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       child: Column(
         spacing: 8,
         children: [
@@ -49,7 +49,7 @@ class OrderItem extends StatelessWidget {
             children: [
               // Order Status
               Container(
-                padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4),
                   color: order.status == OrderStatus.pending ?

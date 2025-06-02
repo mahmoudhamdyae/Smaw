@@ -29,10 +29,10 @@ class MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    HomeScreen(),
-    OrdersScreen(),
+    const HomeScreen(),
+    const OrdersScreen(),
     Container(),
-    AttendanceScreen(),
+    const AttendanceScreen(),
     Container(),
   ];
 
@@ -43,7 +43,7 @@ class MainScreenState extends State<MainScreen> {
       backdrop: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -64,18 +64,18 @@ class MainScreenState extends State<MainScreen> {
           body: _pages[_currentIndex],
           floatingActionButton: FloatingActionButton(
             backgroundColor: ColorsManager.primaryBlue,
-            shape: CircleBorder(),
+            shape: const CircleBorder(),
             elevation: 4,
             onPressed: () {
               setState(() {
                 _currentIndex = 2;
               });
             },
-            child: Icon(Icons.add, color: ColorsManager.primaryWhite),
+            child: const Icon(Icons.add, color: ColorsManager.primaryWhite),
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(
-            shape: CircularNotchedRectangle(),
+            shape: const CircularNotchedRectangle(),
             notchMargin: 8,
             color: Colors.white,
             elevation: 8,
