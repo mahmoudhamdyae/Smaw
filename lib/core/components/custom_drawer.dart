@@ -15,82 +15,84 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        (MediaQuery.paddingOf(context).top + 16).ph,
-        // Languages
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            // English
-            _buildLangItem(
-                AssetsManager.eng,
-                ColorsManager.primaryBabyBlue, () {
-              _saveLanguage(context, english);
-            }),
-            8.pw,
-            // Arabic
-            _buildLangItem(
-                AssetsManager.ara,
-                ColorsManager.primaryWhite, () {
-              _saveLanguage(context, arabic);
-            }),
-            16.pw,
-          ],
-        ),
-        16.ph,
-        // User Image
-        ClipOval(
-          child: Image.asset(
-            AssetsManager.avatar2,
-            width: 120,
-            height: 120,
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          (MediaQuery.paddingOf(context).top + 16).ph,
+          // Languages
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              // English
+              _buildLangItem(
+                  AssetsManager.eng,
+                  ColorsManager.primaryBabyBlue, () {
+                _saveLanguage(context, english);
+              }),
+              8.pw,
+              // Arabic
+              _buildLangItem(
+                  AssetsManager.ara,
+                  ColorsManager.primaryWhite, () {
+                _saveLanguage(context, arabic);
+              }),
+              16.pw,
+            ],
           ),
-        ),
-        8.ph,
-        // User Name
-        Text(
-          'وليد سليمان',
-          style: FontsManager.heading3Bold(
-            color: ColorsManager.primaryWhite
+          16.ph,
+          // User Image
+          ClipOval(
+            child: Image.asset(
+              AssetsManager.avatar2,
+              width: 120,
+              height: 120,
+            ),
           ),
-        ),
-        4.ph,
-        // User Email
-        Text(
-          'barmg3@gmail.com',
-          style: FontsManager.footnoteMedium(
-              color: ColorsManager.primaryWhite.withValues(alpha: .8)
+          8.ph,
+          // User Name
+          Text(
+            'وليد سليمان',
+            style: FontsManager.heading3Bold(
+              color: ColorsManager.primaryWhite
+            ),
           ),
-        ),
-        4.ph,
-        //
-        Text(
-          '#2288932',
-          style: FontsManager.footnoteMedium(
-              color: ColorsManager.primaryWhite.withValues(alpha: .8)
+          4.ph,
+          // User Email
+          Text(
+            'barmg3@gmail.com',
+            style: FontsManager.footnoteMedium(
+                color: ColorsManager.primaryWhite.withValues(alpha: .8)
+            ),
           ),
-        ),
-        24.ph,
-        _buildItem(context, StringsManager.drawerOrders, AssetsManager.ordersFill, () {}),
-        32.ph,
-        _buildItem(context, StringsManager.drawerAttendance, AssetsManager.attendanceFill, () {}),
-        32.ph,
-        _buildItem(context, StringsManager.drawerSummary, AssetsManager.summary, () {}),
-        32.ph,
-        _buildDivider(context),
-        32.ph,
-        _buildItem(context, StringsManager.drawerAbout, AssetsManager.about, () {}),
-        32.ph,
-        _buildItem(context, StringsManager.drawerCond, AssetsManager.policy, () {}),
-        32.ph,
-        _buildItem(context, StringsManager.drawerPolicy, AssetsManager.policy, () {}),
-        32.ph,
-        _buildDivider(context),
-        32.ph,
-        _buildItem(context, StringsManager.drawerLogOut, AssetsManager.logOut, () {}),
-        32.ph,
-      ],
+          4.ph,
+          //
+          Text(
+            '#2288932',
+            style: FontsManager.footnoteMedium(
+                color: ColorsManager.primaryWhite.withValues(alpha: .8)
+            ),
+          ),
+          24.ph,
+          _buildItem(context, StringsManager.drawerOrders, AssetsManager.ordersFill, () {}),
+          32.ph,
+          _buildItem(context, StringsManager.drawerAttendance, AssetsManager.attendanceFill, () {}),
+          32.ph,
+          _buildItem(context, StringsManager.drawerSummary, AssetsManager.summary, () {}),
+          32.ph,
+          _buildDivider(context),
+          32.ph,
+          _buildItem(context, StringsManager.drawerAbout, AssetsManager.about, () {}),
+          32.ph,
+          _buildItem(context, StringsManager.drawerCond, AssetsManager.policy, () {}),
+          32.ph,
+          _buildItem(context, StringsManager.drawerPolicy, AssetsManager.policy, () {}),
+          32.ph,
+          _buildDivider(context),
+          32.ph,
+          _buildItem(context, StringsManager.drawerLogOut, AssetsManager.logOut, () {}),
+          32.ph,
+        ],
+      ),
     );
   }
 

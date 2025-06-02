@@ -31,9 +31,9 @@ class MainScreenState extends State<MainScreen> {
   final List<Widget> _pages = [
     HomeScreen(),
     OrdersScreen(),
-    HomeScreen(),
+    Container(),
     AttendanceScreen(),
-    HomeScreen(),
+    Container(),
   ];
 
   @override
@@ -85,9 +85,9 @@ class MainScreenState extends State<MainScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    24.pw,
+                    (MediaQuery.sizeOf(context).width * .04).pw,
                     _buildHome(context, _currentIndex == 0),
-                    32.pw,
+                    (MediaQuery.sizeOf(context).width * .1).pw,
                     _buildOrders(context, _currentIndex == 1),
                   ],
                 ),
@@ -95,9 +95,9 @@ class MainScreenState extends State<MainScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     _buildAttendance(context, _currentIndex == 3),
-                    32.pw,
+                    (MediaQuery.sizeOf(context).width * .1).pw,
                     _buildMenu(context, _currentIndex == 4),
-                    24.pw,
+                    (MediaQuery.sizeOf(context).width * .04).pw,
                   ],
                 ),
               ],
@@ -159,7 +159,6 @@ class MainScreenState extends State<MainScreen> {
     return InkWell(
       onTap: () {
         setState(() {
-          _currentIndex = 4;
           _advancedDrawerController.showDrawer();
         });
       },
