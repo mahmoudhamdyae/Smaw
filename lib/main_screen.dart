@@ -5,10 +5,12 @@ import 'package:smaw/core/extensions/num_extenstions.dart';
 import 'package:smaw/core/resources/colors_manager.dart';
 import 'package:smaw/core/resources/language_manager.dart';
 import 'package:smaw/features/home/presentation/screens/home_screen.dart';
+import 'package:smaw/features/orders/presentation/screens/orders_screen.dart';
 
 import 'core/resources/assets_manager.dart';
 import 'core/resources/fonts_manager.dart';
 import 'core/resources/strings_manager.dart';
+import 'features/attendance/presentation/screens/attendance_screen.dart';
 
 class MainScreen extends StatefulWidget {
 
@@ -28,9 +30,9 @@ class MainScreenState extends State<MainScreen> {
 
   final List<Widget> _pages = [
     HomeScreen(),
+    OrdersScreen(),
     HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    AttendanceScreen(),
     HomeScreen(),
   ];
 
