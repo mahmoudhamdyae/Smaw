@@ -31,4 +31,6 @@ class ColorsManager {
   static const Color supportOrangeLight = Color(0xFFFDCEC1);
   static const Color supportGreen = Color(0xFF1EB835);
   static const Color supportGreenLight = Color(0xFFBCEAC2);
+  static const Color supportRed = Color(0xFFF30B26);
+  static const Color supportRedLight = Color(0xFFFBB6BE);
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smaw/core/extensions/num_extenstions.dart';
+import 'package:smaw/core/resources/assets_manager.dart';
 import 'package:smaw/core/resources/colors_manager.dart';
 import 'package:smaw/core/resources/fonts_manager.dart';
 import 'package:smaw/core/resources/language_manager.dart';
@@ -31,7 +33,7 @@ class OrderItem extends StatelessWidget {
                 order.type == OrderType.absence ?
                 StringsManager.homeLeaveOfAbsence.trans(context) :
                     order.type == OrderType.delay ?
-                    StringsManager.homeLeaveOfDelay.trans(context) : ''
+                    StringsManager.homeLeaveOfDelay.trans(context) : StringsManager.homeRequest.trans(context)
                 ,
                 style: FontsManager.heading4Bold(),
               ),
@@ -53,7 +55,7 @@ class OrderItem extends StatelessWidget {
                   color: order.status == OrderStatus.pending ?
                   ColorsManager.supportOrangeLight :
                   order.status == OrderStatus.accepted ?
-                  ColorsManager.secondaryGreenLight : Colors.transparent
+                  ColorsManager.secondaryGreenLight : ColorsManager.supportRedLight
                 ),
                 child: Row(
                   spacing: 4,
@@ -67,18 +69,18 @@ class OrderItem extends StatelessWidget {
                         color: order.status == OrderStatus.pending ?
                         ColorsManager.supportOrange :
                         order.status == OrderStatus.accepted ?
-                        ColorsManager.supportGreen : Colors.transparent
+                        ColorsManager.supportGreen : ColorsManager.supportRed
                       ),
                     ),
                     Text(
                       order.status == OrderStatus.pending ? StringsManager.homePending.trans(context) :
                           order.status == OrderStatus.accepted ? StringsManager.homeAccepted.trans(context) :
-                              StringsManager.homeAccepted.trans(context),
+                              StringsManager.homeRefused.trans(context),
                       style: FontsManager.captionSBold(
                           color: order.status == OrderStatus.pending ?
                           ColorsManager.supportOrange :
                           order.status == OrderStatus.accepted ?
-                          ColorsManager.supportGreen : Colors.transparent
+                          ColorsManager.supportGreen : ColorsManager.supportRed
                       ),
                     )
                   ],
@@ -93,18 +95,24 @@ class OrderItem extends StatelessWidget {
                 ),
                 padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                 child: Row(
-                  spacing: 4,
                   children: [
                     Text(
                       order.type == OrderType.absence ? StringsManager.homeAbsenceReason.trans(context) :
                         order.type == OrderType.delay ? StringsManager.homeDelayReason.trans(context) :
-                        StringsManager.homeDelayReason.trans(context),
+                        StringsManager.homeReqAmount.trans(context),
                       style: FontsManager.captionS(),
                     ),
+                    4.pw,
                     Text(
                       order.reasonTitle ?? '',
                       style: FontsManager.captionSBold(),
-                    )
+                    ),
+                    (order.type == OrderType.reqAmount ? 4 : 0).pw,
+                    order.type == OrderType.reqAmount ? Image.asset(
+                      AssetsManager.sar,
+                      width: 8,
+                      color: ColorsManager.black,
+                    ) : Container(),
                   ],
                 ),
               )

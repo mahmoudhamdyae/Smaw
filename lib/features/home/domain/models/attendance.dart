@@ -70,8 +70,6 @@ List<Attendance> getFakeAttendanceList() => [
       dayNo: 4,
       dateM: '12/05/2025',
       dateH: '12/12/1446',
-      enter: null,
-      exit: null,
       isVacancy: true,
       isAbsence: false,
       willBeDeducted: false
@@ -80,8 +78,6 @@ List<Attendance> getFakeAttendanceList() => [
       dayNo: 5,
       dateM: '12/05/2025',
       dateH: '12/12/1446',
-      enter: null,
-      exit: null,
       isVacancy: false,
       isAbsence: true,
       willBeDeducted: true

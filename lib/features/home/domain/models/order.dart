@@ -17,7 +17,7 @@ class Order {
 }
 
 enum OrderType {
-  absence, delay;
+  absence, delay, reqAmount;
 }
 
 enum OrderStatus {
@@ -40,5 +40,13 @@ List<Order> getFakeOrders() => [
       status: OrderStatus.accepted,
       reason: 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ',
       reasonTitle: 'ازدحام الطريق'
+  ),
+  Order(
+      type: OrderType.reqAmount,
+      date: '12/05/2025',
+      time: '10:00',
+      status: OrderStatus.rejected,
+      reason: 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ',
+      reasonTitle: '5,000'
   )
 ];

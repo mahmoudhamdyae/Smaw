@@ -21,13 +21,16 @@ class StringsManager {
   static const homeNewestOrders = "home_newest_orders";
   static const homePending = "home_pending";
   static const homeAccepted = "home_accepted";
+  static const homeRefused = "home_refused";
   static const homeAbsenceReason = "home_absence_reason";
   static const homeDelayReason = "home_delay_reason";
   static const homeLeaveOfAbsence = "home_leave_of_absence";
   static const homeLeaveOfDelay = "home_leave_of_delay";
+  static const homeRequest = "home_request";
   static const homeViewMore = "home_view_more";
   static const homeVacation = "home_vacation";
   static const homeAbsence = "home_absence";
+  static const homeReqAmount = "home_req_amount";
 
   /// Week
   static const sat = "sat";
