@@ -21,7 +21,10 @@ class ColorsManager {
 
   /// Gray
   static const Color gray500 = Color(0xFFA1A1A1);
+  static const Color gray100 = Color(0xFFF5F5F5);
+  static const Color gray200 = Color(0xFFECECEC);
 
   static const Color black = Color(0xFF051014);
   static const Color supportBlueDeep = Color(0xFF0D47A1);
+  static const Color supportOrange = Color(0xFFF75C31);
 }

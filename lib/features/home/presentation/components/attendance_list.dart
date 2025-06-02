@@ -12,7 +12,7 @@ class AttendanceList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 148,
+      height: 190,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: MarginsManager.mainHorizontalMargin),

@@ -1,3 +1,7 @@
+import 'package:flutter/cupertino.dart';
+import 'package:smaw/core/resources/language_manager.dart';
+import 'package:smaw/core/resources/strings_manager.dart';
+
 class Attendance {
   final int? dayNo;
   final String? dateM;
@@ -20,7 +24,26 @@ class Attendance {
   });
 }
 
-// String convert
+String convertDay(BuildContext context, int day) {
+  switch (day) {
+    case 1:
+      return StringsManager.sat.trans(context);
+    case 2:
+      return StringsManager.sun.trans(context);
+    case 3:
+      return StringsManager.mon.trans(context);
+    case 4:
+      return StringsManager.tue.trans(context);
+    case 5:
+      return StringsManager.wed.trans(context);
+    case 6:
+      return StringsManager.thu.trans(context);
+    case 7:
+      return StringsManager.fri.trans(context);
+    default:
+      return '';
+  }
+}
 
 List<Attendance> getFakeAttendanceList() => [
   Attendance(
@@ -47,8 +70,8 @@ List<Attendance> getFakeAttendanceList() => [
       dayNo: 4,
       dateM: '12/05/2025',
       dateH: '12/12/1446',
-      enter: '09:00',
-      exit: '17:00',
+      enter: null,
+      exit: null,
       isVacancy: true,
       isAbsence: false,
       willBeDeducted: false
@@ -57,8 +80,8 @@ List<Attendance> getFakeAttendanceList() => [
       dayNo: 5,
       dateM: '12/05/2025',
       dateH: '12/12/1446',
-      enter: '09:00',
-      exit: '17:00',
+      enter: null,
+      exit: null,
       isVacancy: false,
       isAbsence: true,
       willBeDeducted: true

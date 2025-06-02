@@ -31,9 +31,80 @@ class MainScreenState extends State<MainScreen> {
     _controller = PersistentTabController(initialIndex: widget.initialIndex);
   }
 
+  int _selectedIndex = 0;
+
+  List<Widget> _pages = [
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return PersistentTabView(
+    return
+      /*Scaffold(
+        body: _pages[_selectedIndex],
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            _onItemTapped(2);
+          },
+          shape: CircleBorder(),
+          backgroundColor: ColorsManager.primaryBlue,
+          elevation: 5,
+          child: Icon(Icons.add, color: Colors.white),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: BottomAppBar(
+          shape: CircularNotchedRectangle(),
+          notchMargin: 8.0,
+          // color: Colors.purple,
+          child: BottomNavigationBar(
+            backgroundColor: Colors.transparent,
+            elevation: 2,
+            fixedColor: ColorsManager.primaryBlue,
+            currentIndex: _selectedIndex,
+            onTap: (int index) {
+              _onItemTapped(index);
+            },
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home, color: ColorsManager.primaryBlue),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings, color: ColorsManager.primaryBlue),
+                label: 'Settings',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings, color: ColorsManager.primaryBlue),
+                label: 'Settings',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings, color: ColorsManager.primaryBlue),
+                label: 'Settings',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings, color: ColorsManager.primaryBlue),
+                label: 'Settings',
+              ),
+            ],
+            // selectedItemColor: ColorsManager.primaryBlue,
+            // selectedIconTheme: IconThemeData(color: ColorsManager.primaryBlue),
+            // unselectedIconTheme: IconThemeData(color: ColorsManager.primaryBlue),
+            // unselectedItemColor: Colors.white70,
+          ),
+        ),
+      )*/
+
+      PersistentTabView(
       controller: _controller,
       tabs: [
         _buildHome(context),

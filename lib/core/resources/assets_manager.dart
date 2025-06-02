@@ -4,6 +4,8 @@ class AssetsManager {
 
   static const String bell = "$imagePath/bell.png";
   static const String sar = "$imagePath/sar.png";
+  static const String enter = "$imagePath/enter.png";
+  static const String exit = "$imagePath/exit.png";
 
   /// Avatars
   static const String avatar1 = "$imagePath/avatar_1.png";
