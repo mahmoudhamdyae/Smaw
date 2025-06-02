@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
+import 'package:smaw/core/components/custom_drawer.dart';
 import 'package:smaw/core/extensions/num_extenstions.dart';
 import 'package:smaw/core/resources/colors_manager.dart';
 import 'package:smaw/core/resources/language_manager.dart';
@@ -23,6 +25,7 @@ class MainScreen extends StatefulWidget {
 class MainScreenState extends State<MainScreen> {
 
   late final PersistentTabController _controller;
+  final _advancedDrawerController = AdvancedDrawerController();
 
   MainScreenState();
   @override
@@ -31,109 +34,61 @@ class MainScreenState extends State<MainScreen> {
     _controller = PersistentTabController(initialIndex: widget.initialIndex);
   }
 
-  int _selectedIndex = 0;
-
-  List<Widget> _pages = [
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return
-      /*Scaffold(
-        body: _pages[_selectedIndex],
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            _onItemTapped(2);
-          },
-          shape: CircleBorder(),
-          backgroundColor: ColorsManager.primaryBlue,
-          elevation: 5,
-          child: Icon(Icons.add, color: Colors.white),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: BottomAppBar(
-          shape: CircularNotchedRectangle(),
-          notchMargin: 8.0,
-          // color: Colors.purple,
-          child: BottomNavigationBar(
-            backgroundColor: Colors.transparent,
-            elevation: 2,
-            fixedColor: ColorsManager.primaryBlue,
-            currentIndex: _selectedIndex,
-            onTap: (int index) {
-              _onItemTapped(index);
-            },
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home, color: ColorsManager.primaryBlue),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.settings, color: ColorsManager.primaryBlue),
-                label: 'Settings',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.settings, color: ColorsManager.primaryBlue),
-                label: 'Settings',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.settings, color: ColorsManager.primaryBlue),
-                label: 'Settings',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.settings, color: ColorsManager.primaryBlue),
-                label: 'Settings',
-              ),
-            ],
-            // selectedItemColor: ColorsManager.primaryBlue,
-            // selectedIconTheme: IconThemeData(color: ColorsManager.primaryBlue),
-            // unselectedIconTheme: IconThemeData(color: ColorsManager.primaryBlue),
-            // unselectedItemColor: Colors.white70,
+    return AdvancedDrawer(
+      drawer: const CustomDrawer(),
+      backdrop: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Colors.blueGrey, Colors.blueGrey.withOpacity(0.2)],
           ),
         ),
-      )*/
-
-      PersistentTabView(
-      controller: _controller,
-      tabs: [
-        _buildHome(context),
-        _buildOrders(context),
-        _buildAdd(context),
-        _buildAttendance(context),
-        _buildMenu(context),
-      ],
-      navBarBuilder: (navBarConfig) => Style13BottomNavBar(
-        navBarConfig: navBarConfig,
-        navBarDecoration: NavBarDecoration(
-            padding: EdgeInsets.only(top: 10),
-            color: ColorsManager.primaryWhite,
-            boxShadow: [
-              BoxShadow(
-                color: Color(0xFF64707A).withValues(alpha: 0.1),
-                spreadRadius: 5,
-                blurRadius: 20,
-                offset: const Offset(0, 0),
-              )
-            ],
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(12),
-              topRight: Radius.circular(12),
-            ),
-            // boxShadow: navBarShadow(context: context)
-        ),
       ),
-    );
+      controller: _advancedDrawerController,
+      animationCurve: Curves.easeInOut,
+      animationDuration: const Duration(milliseconds: 300),
+      animateChildDecoration: true,
+      rtlOpening: false,
+      disabledGestures: false,
+      childDecoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(16)),
+      ),
+        child: PersistentTabView(
+        controller: _controller,
+        tabs: [
+          _buildHome(context),
+          _buildOrders(context),
+          _buildAdd(context),
+          _buildAttendance(context),
+          _buildMenu(context),
+        ],
+        navBarBuilder: (navBarConfig) => Style13BottomNavBar(
+          navBarConfig: navBarConfig,
+          navBarDecoration: NavBarDecoration(
+              padding: EdgeInsets.only(top: 10),
+              color: ColorsManager.primaryWhite,
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0xFF64707A).withValues(alpha: 0.1),
+                  spreadRadius: 5,
+                  blurRadius: 20,
+                  offset: const Offset(0, 0),
+                )
+              ],
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(12),
+                topRight: Radius.circular(12),
+              ),
+              // boxShadow: navBarShadow(context: context)
+          ),
+        ),
+            ),
+      );
   }
 
   PersistentTabConfig _buildHome(BuildContext context) {

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:smaw/features/home/presentation/screens/home_screen.dart';
+import 'package:smaw/main_screen.dart';
 
 import 'core/app/app_preferences.dart';
 import 'core/di/di.dart';
 import 'core/resources/language_manager.dart';
-import 'main_screen.dart';
-
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -55,13 +53,15 @@ class _MyAppState extends State<MyApp> {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: BallInHoleNavBar(),
+      home: MainScreen(),
     );
   }
 }
 
 
 class BallInHoleNavBar extends StatefulWidget {
+  const BallInHoleNavBar({super.key});
+
   @override
   State<BallInHoleNavBar> createState() => _BallInHoleNavBarState();
 }
@@ -133,93 +133,6 @@ class _BallInHoleNavBarState extends State<BallInHoleNavBar> {
           _currentIndex = index;
         });
       },
-    );
-  }
-}
-
-
-
-
-// class CustomBottomNav extends StatefulWidget {
-//   @override
-//   _CustomBottomNavState createState() => _CustomBottomNavState();
-// }
-//
-// class _CustomBottomNavState extends State<CustomBottomNav> {
-//   int _selectedIndex = 1;
-//
-//   final List<Widget> _pages = [
-//     Center(child: Text('Home', style: TextStyle(fontSize: 24))),
-//     Center(child: Text('Heart / Action', style: TextStyle(fontSize: 24))),
-//     Center(child: Text('Settings', style: TextStyle(fontSize: 24))),
-//   ];
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: _pages[_selectedIndex],
-//       bottomNavigationBar: ConvexAppBar.builder(
-//         style: TabStyle.fixedCircle,
-//         backgroundColor: Color(0xFF7E3FF2),
-//         color: Colors.white,
-//         activeColor: Colors.white,
-//         initialActiveIndex: _selectedIndex,
-//         itemBuilder: CustomCircleBuilder(), // 👈 Custom middle button builder
-//         count: 3,
-//         onTap: (int i) => setState(() => _selectedIndex = i),
-//       ),
-//     );
-//   }
-// }
-
-class CustomCircleBuilder extends DelegateBuilder {
-  @override
-  Widget build(BuildContext context, int index, bool active) {
-    if (index == 1) {
-      // Center Button
-      return Container(
-        height: 65,
-        width: 65,
-        decoration: BoxDecoration(
-          color: active ? Colors.white : Colors.white,
-          shape: BoxShape.circle,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 10,
-              offset: Offset(0, 4),
-            )
-          ],
-        ),
-        child: Center(
-          child: Icon(Icons.favorite,
-              size: 32, color: Color(0xFF7E3FF2)), // Inner icon color
-        ),
-      );
-    }
-
-    // Left and right buttons
-    IconData icon;
-    String label;
-    if (index == 0) {
-      icon = Icons.home;
-      label = 'Home';
-    } else {
-      icon = Icons.settings;
-      label = 'Settings';
-    }
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, size: 26, color: active ? Colors.white : Colors.white70),
-        SizedBox(height: 4),
-        Text(label,
-            style: TextStyle(
-              color: active ? Colors.white : Colors.white70,
-              fontSize: 12,
-            ))
-      ],
     );
   }
 }
@@ -358,80 +271,3 @@ class BNBCustomPainter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-class CustomBottomBarExample extends StatefulWidget {
-  @override
-  State<CustomBottomBarExample> createState() => _CustomBottomBarExampleState();
-}
-
-class _CustomBottomBarExampleState extends State<CustomBottomBarExample> {
-  int _selectedIndex = 0;
-
-  List<Widget> _pages = [
-    Center(child: Text("Home")),
-    Center(child: Text("Heart / Action")),
-    Center(child: Text("Settings")),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: _pages[_selectedIndex],
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _onItemTapped(1);
-        },
-        backgroundColor: Colors.purple,
-        child: Icon(Icons.favorite, color: Colors.white),
-        elevation: 5,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 8.0,
-        color: Colors.purple,
-        child: BottomNavigationBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          currentIndex: _selectedIndex == 1 ? 0 : _selectedIndex,
-          onTap: (int index) {
-            if (index == 0) {
-              _onItemTapped(0);
-            } else if (index == 1) {
-              _onItemTapped(2);
-            }
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home, color: Colors.white),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings, color: Colors.white),
-              label: 'Settings',
-            ),
-          ],
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.white70,
-        ),
-      ),
-    );
-  }
-}

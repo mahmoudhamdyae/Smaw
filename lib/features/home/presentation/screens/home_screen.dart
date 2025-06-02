@@ -37,7 +37,8 @@ class HomeScreen extends StatelessWidget {
                 sub: StringsManager.homeViewMore,
               ),
               8.ph,
-              OrderList(orders: getFakeOrders())
+              OrderList(orders: getFakeOrders()),
+              9.ph,
             ],
           ),
         )
