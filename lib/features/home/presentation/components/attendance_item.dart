@@ -81,7 +81,7 @@ class AttendanceItem extends StatelessWidget {
       color: ColorsManager.gray100,
       borderRadius: BorderRadius.circular(18),
     ),
-    padding: const EdgeInsets.symmetric(vertical: 29, horizontal: 27),
+    padding: const EdgeInsets.symmetric(vertical: 29, horizontal: 24),
     child: Text(
       title.trans(context),
       style: FontsManager.heading5Bold(),

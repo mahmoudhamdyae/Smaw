@@ -20,9 +20,10 @@ class ColorsManager {
   static const Color secondaryPurpleLight = Color(0xFFDC71FD);
 
   /// Gray
-  static const Color gray500 = Color(0xFFA1A1A1);
   static const Color gray100 = Color(0xFFF5F5F5);
   static const Color gray200 = Color(0xFFECECEC);
+  static const Color gray500 = Color(0xFFA1A1A1);
+  static const Color gray700 = Color(0xFF606060);
 
   static const Color black = Color(0xFF051014);
   static const Color supportBlueDeep = Color(0xFF0D47A1);

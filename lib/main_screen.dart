@@ -195,7 +195,7 @@ class MainScreenState extends State<MainScreen> {
           image,
           height: 24,
           width: 24,
-          color: isActive ? ColorsManager.primaryBlue : ColorsManager.gray500,
+          color: isActive ? ColorsManager.primaryBlue : ColorsManager.gray700,
         ),
         8.ph,
         Text(
