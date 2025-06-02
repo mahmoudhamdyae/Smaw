@@ -47,7 +47,7 @@ class MainScreenState extends State<MainScreen> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Colors.blueGrey, Colors.blueGrey.withValues(alpha: 0.2)],
+            colors: [ColorsManager.primaryBlue, ColorsManager.primaryBlue],
           ),
         ),
       ),
