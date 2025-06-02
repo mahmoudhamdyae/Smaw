@@ -27,4 +27,7 @@ class ColorsManager {
   static const Color black = Color(0xFF051014);
   static const Color supportBlueDeep = Color(0xFF0D47A1);
   static const Color supportOrange = Color(0xFFF75C31);
+  static const Color supportOrangeLight = Color(0xFFFDCEC1);
+  static const Color supportGreen = Color(0xFF1EB835);
+  static const Color supportGreenLight = Color(0xFFBCEAC2);
 }

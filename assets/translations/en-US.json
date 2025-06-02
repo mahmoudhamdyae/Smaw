@@ -20,11 +20,11 @@
   "home_accepted": "Approved",
   "home_absence_reason": "Absence Reason",
   "home_delay_reason": "Delay Reason",
-  "home_health_reason": "Health Issue",
-  "home_traffic_jam_reason": "Traffic Jam",
   "home_view_more": "View All",
   "home_vacation": "Vacation",
   "home_absence": "Absence",
+  "home_leave_of_absence": "Leave of Absence",
+  "home_leave_of_delay": "Leave of Delay",
 
   "sat": "Saturday",
   "sun": "Sunday",

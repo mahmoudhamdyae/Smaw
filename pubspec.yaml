@@ -16,7 +16,7 @@ dependencies:
   flutter_localization: ^0.3.2
   shared_preferences: ^2.5.3
   get_it: ^8.0.3
-  convex_bottom_bar: ^3.0.0
+  convex_bottom_bar:
 
 dev_dependencies:
   flutter_test:

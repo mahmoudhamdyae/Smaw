@@ -23,8 +23,8 @@ class StringsManager {
   static const homeAccepted = "home_accepted";
   static const homeAbsenceReason = "home_absence_reason";
   static const homeDelayReason = "home_delay_reason";
-  static const homeHealthReason = "home_health_reason";
-  static const homeTrafficJamReason = "home_traffic_jam_reason";
+  static const homeLeaveOfAbsence = "home_leave_of_absence";
+  static const homeLeaveOfDelay = "home_leave_of_delay";
   static const homeViewMore = "home_view_more";
   static const homeVacation = "home_vacation";
   static const homeAbsence = "home_absence";

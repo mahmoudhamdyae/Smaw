@@ -20,11 +20,11 @@
   "home_accepted": "تم الموافقة",
   "home_absence_reason": "سبب الغياب",
   "home_delay_reason": "سبب التأخير",
-  "home_health_reason": "حالة صحية",
-  "home_traffic_jam_reason": "ازدحام الطريق",
   "home_view_more": "عرض الكل",
   "home_vacation": "إجازة",
   "home_absence": "غياب",
+  "home_leave_of_absence": "إذن غياب",
+  "home_leave_of_delay": "إذن تأخير",
 
   "sat": "السبت",
   "sun": "الأحد",
