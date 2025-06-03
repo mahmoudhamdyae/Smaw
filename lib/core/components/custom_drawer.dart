@@ -23,18 +23,18 @@ class CustomDrawer extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              // English
-              _buildLangItem(
-                  AssetsManager.eng,
-                  ColorsManager.primaryBabyBlue, () {
-                _saveLanguage(context, english);
-              }),
-              8.pw,
               // Arabic
               _buildLangItem(
                   AssetsManager.ara,
-                  ColorsManager.primaryWhite, () {
+                  ColorsManager.primaryBabyBlue, () {
                 _saveLanguage(context, arabic);
+              }),
+              8.pw,
+              // English
+              _buildLangItem(
+                  AssetsManager.eng,
+                  ColorsManager.primaryWhite, () {
+                _saveLanguage(context, english);
               }),
               16.pw,
             ],

@@ -27,6 +27,7 @@ class MainScreenState extends State<MainScreen> {
 
   final _advancedDrawerController = AdvancedDrawerController();
   int _currentIndex = 0;
+  bool _isMenuSelected = false;
 
   final List<Widget> _pages = [
     const HomeScreen(),
@@ -35,6 +36,12 @@ class MainScreenState extends State<MainScreen> {
     const AttendanceScreen(),
     Container(),
   ];
+
+  @override
+  void dispose() {
+    super.dispose();
+      _advancedDrawerController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +76,7 @@ class MainScreenState extends State<MainScreen> {
             onPressed: () {
               setState(() {
                 _currentIndex = 2;
+                _isMenuSelected = false;
               });
             },
             child: const Icon(Icons.add, color: ColorsManager.primaryWhite),
@@ -86,17 +94,17 @@ class MainScreenState extends State<MainScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     (MediaQuery.sizeOf(context).width * .04).pw,
-                    _buildHome(context, _currentIndex == 0),
+                    _buildHome(context, _currentIndex == 0 && !_isMenuSelected),
                     (MediaQuery.sizeOf(context).width * .1).pw,
-                    _buildOrders(context, _currentIndex == 1),
+                    _buildOrders(context, _currentIndex == 1 && !_isMenuSelected),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    _buildAttendance(context, _currentIndex == 3),
+                    _buildAttendance(context, _currentIndex == 3 && !_isMenuSelected),
                     (MediaQuery.sizeOf(context).width * .1).pw,
-                    _buildMenu(context, _currentIndex == 4),
+                    _buildMenu(context, _isMenuSelected),
                     (MediaQuery.sizeOf(context).width * .04).pw,
                   ],
                 ),
@@ -112,6 +120,7 @@ class MainScreenState extends State<MainScreen> {
       onTap: () {
         setState(() {
           _currentIndex = 0;
+          _isMenuSelected = false;
         });
       },
       child: _buildItem(
@@ -128,6 +137,7 @@ class MainScreenState extends State<MainScreen> {
       onTap: () {
         setState(() {
           _currentIndex = 1;
+          _isMenuSelected = false;
         });
       },
       child: _buildItem(
@@ -144,6 +154,7 @@ class MainScreenState extends State<MainScreen> {
       onTap: () {
         setState(() {
           _currentIndex = 3;
+          _isMenuSelected = false;
         });
       },
       child: _buildItem(
@@ -160,6 +171,7 @@ class MainScreenState extends State<MainScreen> {
       onTap: () {
         setState(() {
           _advancedDrawerController.showDrawer();
+          _isMenuSelected = true;
         });
       },
       child: _buildItem(
